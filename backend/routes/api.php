@@ -1,18 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
+//Vendedor
+Route::post('vendedor', 'Api\VendedorController@salvar');
+Route::get('vendedor/todos', 'Api\VendedorController@todos');
+Route::get('vendedor/{idVendedor}/vendas', 'Api\VendedorController@vendas');
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+//Venda
+Route::post('venda', 'Api\VendaController@salvar');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
