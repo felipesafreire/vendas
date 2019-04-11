@@ -27,12 +27,12 @@ class VendaController extends Controller
             $venda = Venda::create([
                 'vendedor_id' => $request->input('vendedor'),
                 'data_venda' => date('Y-m-d h:m:s'),
-                'comissao' => (Config::get('constants.vendedor.comissao')/100) * $request->input('valor'),
+                'comissao' => (Config::get('constants.vendedor.comissao') / 100) * $request->input('valor'),
                 'valor_venda' => $request->input('valor')
             ]);
-            if(!$venda){
+            if (!$venda) {
                 return response()->json(['errors' => "Erro ao inserir a venda."], 400);
-            }else{
+            } else {
                 $venda->vendedor = Vendedor::find($request->input('vendedor'));
                 return response()->json($venda, 200);
             }

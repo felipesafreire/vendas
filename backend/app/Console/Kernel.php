@@ -24,6 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('emails:send EnviaEmailTotalDiarioVendas --force')->dailyAt('19:00');
         // $schedule->command('inspire')
         //          ->hourly();
     }
